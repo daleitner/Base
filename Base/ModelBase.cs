@@ -8,6 +8,7 @@ namespace Base
 	public abstract class ModelBase
 	{
 		#region members
+
 		#endregion
 
 		#region ctors
@@ -19,6 +20,7 @@ namespace Base
 
 		#region properties
 		protected string Id { get; set; }
+		public string DisplayName { get; protected set; }
 		#endregion
 
 		#region private methods
