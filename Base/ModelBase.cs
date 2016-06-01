@@ -20,7 +20,7 @@ namespace Base
 
 		#region properties
 		protected string Id { get; set; }
-		public string DisplayName { get; protected set; }
+		public string DisplayName { get; set; }
 		#endregion
 
 		#region private methods
