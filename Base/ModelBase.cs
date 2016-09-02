@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Base
 {
@@ -12,9 +9,9 @@ namespace Base
 		#endregion
 
 		#region ctors
-		public ModelBase()
+		protected ModelBase()
 		{
-			Id = Guid.NewGuid().ToString();
+			this.Id = Guid.NewGuid().ToString();
 		}
 		#endregion
 
@@ -23,34 +20,34 @@ namespace Base
 		public string DisplayName { get; set; }
 		#endregion
 
-		#region private methods
-		#endregion
-
 		#region public methods
 		public string GetId()
 		{
-			return Id;
+			return this.Id;
 		}
 
 		public override bool Equals(object obj)
 		{
-			if (obj != null)
-			{
-				if (obj.GetType().BaseType == typeof(ModelBase))
-				{
-					ModelBase check = (ModelBase)obj;
-					if (check.Id == this.Id)
-						return true;
-					return false;
-				}
-			}
-			return base.Equals(obj);
+			if (obj == null)
+				return base.Equals(obj);
+
+			if (obj.GetType().BaseType != typeof (ModelBase))
+				return base.Equals(obj);
+
+			var check = (ModelBase)obj;
+			return check.Id == this.Id;
 		}
 
 		public override int GetHashCode()
 		{
 			return base.GetHashCode();
 		}
+
+		public override string ToString()
+		{
+			return this.DisplayName;
+		}
+
 		#endregion
 	}
 }
