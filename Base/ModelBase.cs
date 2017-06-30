@@ -4,23 +4,14 @@ namespace Base
 {
 	public abstract class ModelBase
 	{
-		#region members
-
-		#endregion
-
-		#region ctors
 		protected ModelBase()
 		{
 			this.Id = Guid.NewGuid().ToString();
 		}
-		#endregion
-
-		#region properties
+		
 		protected string Id { get; set; }
 		public string DisplayName { get; set; }
-		#endregion
 
-		#region public methods
 		public string GetId()
 		{
 			return this.Id;
@@ -47,7 +38,5 @@ namespace Base
 		{
 			return this.DisplayName;
 		}
-
-		#endregion
 	}
 }
