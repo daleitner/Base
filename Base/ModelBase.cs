@@ -6,16 +6,11 @@ namespace Base
 	{
 		protected ModelBase()
 		{
-			this.Id = Guid.NewGuid().ToString();
+			Id = IdGenerator.GetNewId();
 		}
 		
-		protected string Id { get; set; }
+		public string Id { get; }
 		public string DisplayName { get; set; }
-
-		public string GetId()
-		{
-			return this.Id;
-		}
 
 		public override bool Equals(object obj)
 		{
@@ -26,7 +21,7 @@ namespace Base
 				return base.Equals(obj);
 
 			var check = (ModelBase)obj;
-			return check.Id == this.Id;
+			return check.Id == Id;
 		}
 
 		public override int GetHashCode()
@@ -36,7 +31,7 @@ namespace Base
 
 		public override string ToString()
 		{
-			return this.DisplayName;
+			return DisplayName;
 		}
 	}
 }
