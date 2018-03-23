@@ -9,8 +9,8 @@ namespace Base
 			Id = IdGenerator.GetNewId();
 		}
 		
-		public string Id { get; }
-		public string DisplayName { get; set; }
+		public virtual string Id { get; }
+		public virtual string DisplayName { get; set; }
 
 		public override bool Equals(object obj)
 		{
